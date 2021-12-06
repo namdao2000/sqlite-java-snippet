@@ -10,7 +10,7 @@ public class Database {
     public static void run() {
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:./database/sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
             statement.executeUpdate("DROP TABLE IF EXISTS person");
@@ -21,7 +21,7 @@ name string,
 phone string
 )
 """);
-            statement.executeUpdate("INSERT INTO person VALUES(1, 'leo', '0403909090')");
+            statement.executeUpdate("INSERT INTO person VALUES(1, 'leo', '0403909091')");
             statement.executeUpdate("INSERT INTO person VALUES(2, 'nam', '0403909090')");
             ResultSet rs = statement.executeQuery("SELECT * FROM person");
             while (rs.next()) {
